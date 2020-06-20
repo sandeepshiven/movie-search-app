@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+
+<% for(i of results){ %> 
+<div class="card mb-3" style="max-width: 100%;" >
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="<%= i.Poster %> " class="card-img" alt="..." style="width: 300px; height:445px;">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h1 class="card-title"><%= i.Title %> </h1>
+          <h3 class="card-text">Release Year: <%= i.Year %> </h3>
+          <h4 class="card-text">Type: <%= i.Type %> </h4>
+          <a href="/title/<%= i.imdbID %> " class="btn btn-primary">Get More Details</a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+<% } %> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include('partials/footer') %> 

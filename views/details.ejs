@@ -1,0 +1,95 @@
+<%- include('partials/header') %>
+
+
+
+<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+<link rel="stylesheet" href="stylesheets/details.css">
+		
+		<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+
+
+
+
+
+    
+
+    <div id="site-content">
+       
+        <main class="main-content">
+            <div class="container">
+                <div class="page">
+            
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <figure><img src="<%= data.Poster %> " alt="figure image"></figure>
+                        </div>
+                        <div class="col-md-8">
+                            <h1><%= data.Title  %></h1>
+                            <h4>Year: <%= data.Year  %></h4>
+                            
+                            <h5><strong>Director:</strong> <%= data.Director %> </h5>
+                            <h5><strong>Writer:</strong> <%= data.Writer %> </h5>
+                            <h5><strong>Actors:</strong> <%= data.Actors %> </h5>
+
+
+
+                            <% if(data.Rated === 'G'){ %>
+                                <img src="/images/g-rating.png" alt="figure image" style="height: 60px;">
+                            <% }else if(data.Rated === "PG-13"){ %>
+                                <img src="/images/pg-13-rating.png" alt="figure image" style="height: 60px; width: 80px">
+                            <% }else if(data.Rated === "PG"){ %>
+                                <img src="/images/pg-rating.png" alt="figure image" style="height: 60px;">
+                            <% }else if(data.Rated === "R"){ %>
+                                <img src="/images/r-rating.png" alt="figure image" style="height: 60px;">
+                            <% }else if(data.Rated === "NC-17"){ %>
+                                <img src="/images/nc-17-rating.png" alt="figure image" style="height: 60px; width: 80px">
+                            <% } %> 
+
+
+
+                            <h5><img src="/images/imdb.png" alt="figure image" style="height: 60px;">: <%= data.Ratings[0].Value %> </h5>
+                            <% if((data.Ratings.length>1)&&(data.Ratings[1].Value.substring(0, data.Ratings[1].Value.length-1) >= 60)){ %>
+
+                                <h5><img src="/images/tomato.png" alt="figure image" style="height: 60px;">: <%= data.Ratings[1].Value %> </h5>
+                            <% }else if((data.Ratings.length>1)&&(data.Ratings[1].Value.substring(0, data.Ratings[1].Value.length-1) < 60)){ %>
+                                <h5><img src="/images/rotten.png" alt="figure image" style="height: 60px;">: <%= data.Ratings[1].Value %> </h5>
+                            <% } %> 
+                            
+
+                        </div>
+                    </div>
+                    <h3>Plot</h3>
+                    <p><%= data.Plot %></p>
+
+                    
+                    
+                    
+                        
+                   
+                </div>
+            </div> <!-- .container -->
+        </main>
+        
+    </div>
+    <!-- Default snippet for navigation -->
+    
+
+
+   
+
+
+
+
+
+
+
+
+
+<%- include('partials/footer') %> 
